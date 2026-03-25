@@ -9,18 +9,21 @@ namespace knk {
     ~Vector();
     Vector();
 
+    bool isEmpty() const noexcept;
+
     private:
     T* data;
     size_t size, capacity;
   };
 }
 template< class T >
+bool knk::Vector< T >::isEmpty() const except {
+  return false;
+}
 knk::Vector< T >::Vector():
   data(nullptr),
   size_(0),
   capacity_(0)
-{}
-knk::Vector< T >::~Vector(){
   delete[] data_;
 }
 

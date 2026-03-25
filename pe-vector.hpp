@@ -10,6 +10,7 @@ namespace knk {
     Vector();
 
     bool isEmpty() const noexcept;
+    size_t getSize() const noexcept;
 
     private:
     T* data;
@@ -17,8 +18,8 @@ namespace knk {
   };
 }
 template< class T >
-bool knk::Vector< T >::isEmpty() const except {
-  return false;
+bool knk::Vector< T >::isEmpty() const noexcept {
+  return !size_;
 }
 knk::Vector< T >::Vector():
   data(nullptr),

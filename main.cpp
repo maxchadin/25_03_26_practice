@@ -14,6 +14,15 @@ bool testDefVecIsEmpty(onst char ** pname)
   Vector< int > v;
   return v.isEmpty();
 }
+bool testSizeOfEmptyVec(const char** pname){
+ *pname = __func__;
+ Vector< int > v;
+ return !v.getSize();
+}
+bool testSizeOfNonEmptyVec(const char** pname){
+ return false;
+}
+
 
 int main()
 {
@@ -21,7 +30,9 @@ int main()
   using case_t = std::pair< test_t, const char *>;
   case_t tests[]{
     { testConstAndDest },
-    { testDefVecIsEmpty }
+    { testDefVecIsEmpty },
+    { testSizeOfEmptyVec },
+    { testSizeOfNonEmptyVec }
     
   };
   constexpr size_t count = sizeof(tests) / sizeof(case_t);

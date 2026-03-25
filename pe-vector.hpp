@@ -18,6 +18,11 @@ namespace knk {
   };
 }
 template< class T >
+bool knk::Vector< T >::getSize() const noexcept {
+  return size_;
+}
+
+template< class T >
 bool knk::Vector< T >::isEmpty() const noexcept {
   return !size_;
 }

@@ -14,14 +14,18 @@ bool testDefVecIsEmpty(onst char ** pname)
   Vector< int > v;
   return v.isEmpty();
 }
+
 bool testSizeOfEmptyVec(const char** pname){
  *pname = __func__;
  Vector< int > v;
  return !v.getSize();
 }
+
 bool testSizeOfNonEmptyVec(const char** pname){
  *pname = __func__;
- return false;
+ constexpr size_t size = 2;
+ Vector< int > v(2ull, 5);
+ return v.getSize() == 2ull;
 }
 
 

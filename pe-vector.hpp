@@ -10,6 +10,7 @@ namespace knk {
     Vector();
     Vector(const Vector< T >& rhs) = delete;
     Vector(size_t size, const T& value);
+    explicit Vector(size_t size);
 
     Vector< T >& operator=(const Vector< T >& rhs) = delete;
 
@@ -26,20 +27,18 @@ namespace knk {
 }
 
 template< class T >
-knk::Vector< T >::Vector(size_t size, const T&):
+knk::Vector< T >::Vector(size_t size):
   data_(size ? new T[size] : nullptr),
-  size_(0),
+  size_(size),
   capacity_(size)
+{}
+
+template< class T >
+knk::Vector< T >::Vector(size_t size, const T& value):
+  Vector(size)
 {
   for (size_t i = 0; i < size; ++i){
-    try {
-      data_[i] = value;
-    }
-    catch (...) {
-      delete[] data_;
-      throw;
-    }
-    ++size_;
+    data_[i] = value;
   }
 }
 

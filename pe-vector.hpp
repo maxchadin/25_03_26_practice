@@ -1,11 +1,16 @@
 #ifndef PE_VECTOR_HPP
 #define PE_VECTOR_HPP
-namespace knk
-{
+namespace knk {
   template< class T >
-struct Vector {
-  T* data;
-  size_t size, capacity;
-};
+  class Vector {
+    public:
+    ~Vector();
+    Vector();
+
+    private:
+    T* data;
+    size_t size, capacity;
+  };
+}
 
 #endif

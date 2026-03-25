@@ -8,3 +8,5 @@ $(UNIT_TESTS): $(OBJS)
 
 clean:
 	$(RM) $(UINT_TESTS) $(OBJS)
+
+-include main.d

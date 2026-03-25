@@ -30,7 +30,18 @@ knk::Vector< T >::Vector(size_t size, const T&):
   data_(size ? new T[size] : nullptr),
   size_(0),
   capacity_(size)
-{}
+{
+  for (size_t i = 0; i < size; ++i){
+    try {
+      data_[i] = value;
+    }
+    catch (...) {
+      delete[] data_;
+      throw;
+    }
+    ++size_;
+  }
+}
 
 template< class T >
 bool knk::Vector< T >::getSize() const noexcept {

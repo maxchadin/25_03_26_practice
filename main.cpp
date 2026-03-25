@@ -20,6 +20,7 @@ bool testSizeOfEmptyVec(const char** pname){
  return !v.getSize();
 }
 bool testSizeOfNonEmptyVec(const char** pname){
+ *pname = __func__;
  return false;
 }
 
